@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title>Daily Journal</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+    body {
+        width: 100%;
+        align-items : center;
+        height: 100%;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-image:url("<%=post.picture%>") ;
+        position: relative;
+    } 
+.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  padding: 50px;
+}
+.box{
+margin: 2rem; background-color: rgb(255,255,255,0.8); padding: 2rem 7rem; border-radius:3rem
+}
+    </style>
+</head>
+<body class="container-sm">
+  <div style="margin: 0rem">
+  <a href="/" class="btn btn-light sticky box" style="padding:1rem">back</a>
+  <div class="content box" style="margin:0rem 3rem 0rem 3rem;" >
+  <h1 style="" name="title"><%=post.title%></h1>
+  <p style="margin-top:1.5rem"><%=post.content%></p> 
+  </div>
+  <div class="comment box" style="margin-top:2rem">
+  <h3>Discussion</h3>
+  <form method="post" action="/post">
+  <button class="btn btn-info float-right" type="submit" style="padding:9px 17px;margin-bottom:0.2rem">post</button>
+  <textarea class="form-control" name="Comment" rows="2" cols="30" placeholder="Your comment"></textarea>
+  </form>
+        <% if(post.comments!=null) {%>
+  <ul class="maincomment">
+        <%   for (let x = 0; x < (post.comments).length; x++) {%>
+  <li class="media" style="margin-top:2rem">
+    <img src="<%=post.comments[x].from.PfP%>" class="mr-3" alt="...">
+    <div class="media-body">
+      <h5 class="mt-0 mb-1"><%=post.comments[x].from.Name%></h5>
+      <p><%=post.comments[x].body%></p>
+    </div>
+  </li>
+    <% }%>
+    <% }%>
+</ul>
+</div>
+<%- include("partials/footer"); -%>

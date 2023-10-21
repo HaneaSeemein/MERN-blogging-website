@@ -1,0 +1,21 @@
+<%- include("partials/header"); -%>
+<p><%=startingContent %></p>
+    <div class="row" style="margin-left: 3rem;margin-top: 1rem;">
+        <%   for (let x = 0; x < posts.length; x++) {%>
+        <a href="/posts/<%=posts[x].title%>">
+            <div class="card bg-dark text-white" style="height:11rem;width:15rem;margin:1.5rem;border:0px">
+                <img src="<%= posts[x].picture%>" class="card-img" style="opacity:0.5;height:100%;">
+                <div class="card-img-overlay">
+                    <h5 class="card-title">
+                        <%=posts[x].title%>
+                    </h5>
+                    <p class="card-text" style="font-size:15px;">
+                        <%=(posts[x].content).substring(0,150)+'...'%>
+                    </p>
+                </div>
+            </div>
+        </a>
+    <% }%>
+    </div>
+    <script>
+    </script>

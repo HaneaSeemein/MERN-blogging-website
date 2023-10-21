@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title>she</title>
+    <meta charset="utf-8">
+     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.3.0/mdb.min.css" rel="stylesheet"/>
+<style>
+body {
+ background-image: url("paper.gif");
+}
+.input-hidden {
+  position: absolute;
+  left: -99999px;
+}
+
+input[type=radio] + label>img {
+  border-radius:3rem;
+  width: 3.9rem;
+  height: 3.9rem;
+  transition: 250ms all;
+  margin-bottom:4rem;
+}
+
+input[type=radio]:checked + label>img {
+    height:5rem;
+    width:5rem;
+    margin-bottom:1rem;
+}
+</style>
+</head>
+<body>
+<!-- Section: Design Block -->
+
+  <!-- Jumbotron -->
+  <div  class="container py-4" style="margin-left:30%;padding:0rem">
+    <div class="align-items-center" style="padding-right:0rem">
+      <div class="col-lg-6 mb-5 mb-lg-0">
+        <div class="card cascading-right" style="
+            background: hsla(0, 0%, 100%, 0.55);
+            backdrop-filter: blur(30px);
+            position:centre">
+          <div class="card-body p-5 shadow-5 text-center" style="position:centre">
+            <h2 class="fw-bold mb-5">Sign up now</h2>
+            <form action="/signup" method="post">
+              <!-- 2 column grid layout with text inputs for the first and last names -->
+              <div class="row">
+                <div class="col-md-6 mb-4">
+                  <div class="form-outline">
+                    <input type="text" name="firstname" class="form-control" />
+                    <label class="form-label" >First name</label>
+                  </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                  <div class="form-outline">
+                    <input type="text" name="lastname" class="form-control" />
+                    <label class="form-label">Last name</label>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Email input -->
+              <div class="form-outline mb-4">
+                <input type="email" name="email" class="form-control" />
+                <label class="form-label">Email address</label>
+              </div>
+
+              <!-- Password input -->
+              <div class="form-outline mb-4">
+                <input type="password" name="password1" class="form-control" />
+                <label class="form-label">password</label>
+              </div>
+              <div class="form-outline mb-4">
+                <input type="password" name="password2" class="form-control" />
+                <label class="form-label">password again</label>
+              </div>
+                          
+             <p>Choose a cat for yourself:</p>
+              <input type="radio" name="cat" id="1" value="1" class="input-hidden" />
+              <label for="1">
+                <img src="images/bratt.jpg"/>
+              </label>
+              <input type="radio" name="cat" id="2" value="2" class="input-hidden" />
+              <label for="2">
+                <img src="images/chonky.jpg"/>
+              </label>
+              <input type="radio" name="cat" id="3" value="3" class="input-hidden" />
+              <label for="3">
+                <img src="images/iamangry.jpg"/>
+              </label>
+              <input type="radio" name="cat" id="4" value="4" class="input-hidden" />
+              <label for="4">
+                <img src="images/pain.jpg"/>
+              </label>
+              <input type="radio" name="cat" id="5" value="5" class="input-hidden" />
+              <label for="5">
+                <img src="images/souljaboy.jpg"/>
+              </label>
+              <input type="radio" name="cat" id="6" value="6" class="input-hidden" />
+              <label for="6">
+                <img src="images/eatidcake.jpg"/>
+              </label>
+              <input type="radio" name="cat" id="7" value="7" class="input-hidden" />
+              <label for="7">
+                <img src="images/coder.jpg"/>
+              </label>
+
+              <!-- Submit button -->
+              <button onclick="setprofile" class="btn btn-primary btn-block mb-4" style="position:static" type="submit" >
+                Sign up
+              </button>
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    function setprofile(){
+      for (let x = 1; x < 7; x++) {
+          image = eval("document.getElementById('"+x+"')");
+          console.log("ok");
+          if (image.checked) {image.setAttribute("name", "pfp"); console.log(image)}
+          else image.setAttribute("name", "cat");
+      }
+      if(document.getElementById("1").checked==true) 
+  var x = document.getElementById("myRadio");
+  x.checked = true;
+    }
+  </script>
+</body>

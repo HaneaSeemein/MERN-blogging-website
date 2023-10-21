@@ -1,0 +1,31 @@
+<%- include("partials/header"); -%>
+<!-- CSS only -->
+<h1>
+  home
+</h1>
+<div>
+  <%   for (let x = 0; x < posts.length; x++) {%>
+  <div class="col-sm-3">
+    <div class="card">
+      <img src="<%= posts[x].picture%>" class='card-img' alt="Snow" style="width:100%;">
+      <div class="wrap"></div>
+      <div class="card-body">
+        <h4 class="card-title">
+          <%=posts[x].title%>
+        </h4>
+        <p class="card-text">
+          <%=(posts[x].content).substring(0, 200) + " ... "%>
+        </p>
+        <button type="button " class="btn btn-outline " style="position:absolute;right:15px;border-radius:20px;background-color:white;color:gray ">
+          <svg xmlns="http://www.w3.org/2000/svg " width="16 " height="16 " fill="currentColor " class="bi bi-caret-up-fill " viewBox="0 0 16 16 ">
+            <path d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z " />
+          </svg>
+        </button>
+  <a href="/posts/<%=posts[x].title%>" class="btn btn-primary">open</a>
+      </div>
+    </div>
+  </div>
+  <% }%>
+
+</div>
+<%- include("partials/footer"); -%>
